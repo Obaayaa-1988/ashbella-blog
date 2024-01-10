@@ -1,11 +1,12 @@
 <template>
   <div class="home">
-  <p>My name is: {{ name }} and I am {{ age }} years old</p>
+  <p ref="p">My name is: {{ name }} and I am {{ age }} years old</p>
   <button @click="buttonClicked">Click me</button>
   </div>
 </template>
 
 <script>
+import { ref } from 'vue';
 // @ is an alias to /src
 
 export default {
@@ -13,6 +14,7 @@ export default {
   //composition api// this function runs before any lifecycle hooks
  setup(){
   console.log('setup')
+  const p = ref(null)
   let name = 'Eno Mary';
   let age = 2;
 
@@ -21,7 +23,7 @@ export default {
     console.log('you clicked me')
   }
 
-  return {name: name, age: age, buttonClicked}// not reactive values
+  return {name: name, age: age, buttonClicked, p}// not reactive values
 
  },
 
